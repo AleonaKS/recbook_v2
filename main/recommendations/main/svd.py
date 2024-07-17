@@ -5,7 +5,7 @@ from surprise import SVD, Dataset, Reader
 from surprise.model_selection import cross_validate
 import pickle
 
-# Загрузка данных из базы данных
+
 books_df = pd.DataFrame(list(Book.objects.all().values()))
 users_df = pd.DataFrame(list(UserPreference.objects.all().values()))
 reviews_df = pd.DataFrame(list(Review.objects.all().values()))
@@ -45,26 +45,10 @@ def svd_model():
 # trainset = data.build_full_trainset()
 # svd.fit(trainset)
 
-#
-# def recommend_books_svd(name, n_recommendations=10):
-#     all_books = books_df['book_id'].unique()
-#     predictions = [svd.predict(name, book_id).est for book_id in all_books]
-#     pred_df = pd.DataFrame({'book_id': all_books, 'predicted_rating': predictions})
-#     top_books = pred_df.sort_values(by='predicted_rating', ascending=False).head(n_recommendations)
-#     recommended_books = []
-#     for book_id in top_books['book_id']:
-#         try:
-#             book = Book.objects.get(book_id=book_id)
-#             recommended_books.append(book)
-#         except Book.DoesNotExist:
-#             continue
-#
-#     return recommended_books
 
 def recommend_books_svd(name, n_recommendations=10):
         with open('svd_model.pkl', 'rb') as f:
             svd = pickle.load(f)
-
         all_books = books_df['book_id'].unique()
         predictions = [svd.predict(name, book_id).est for book_id in all_books]
         pred_df = pd.DataFrame({'book_id': all_books, 'predicted_rating': predictions})
@@ -76,5 +60,4 @@ def recommend_books_svd(name, n_recommendations=10):
                 recommended_books.append(book)
             except Book.DoesNotExist:
                 continue
-
         return recommended_books
