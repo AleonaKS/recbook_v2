@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+<script>
+  var booksData = JSON.parse('{{ books|safe }}');
+</script>
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<h1>Популярное</h1>
+    <a href="{% url 'all_books' category='popular' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=popular_books|slice:":20" %}
+
+    <h1>Персональные рекомендации</h1>
+    <a href="{% url 'all_books' category='personal_books' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=personal_books|slice:":20" %}
+
+    <h1>Новинки</h1>
+    <a href="{% url 'all_books' category='news_books' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=news_books|slice:":20" %}
+
+    <h1>Скоро в продаже</h1>
+    <a href="{% url 'all_books' category='soon_books' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=soon_books|slice:":20" %}
+
+    <h1>Спортивная романтика</h1>
+    <a href="{% url 'all_books' category='sport_books' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=sport_books|slice:":20" %}
+
+    <h1>Летние истории</h1>
+    <a href="{% url 'all_books' category='summer_books' %}" class="view-all-link">Все</a>
+    {% include 'main/book_list.html' with books=summer_books|slice:":20" %}
+
+{% endblock %}

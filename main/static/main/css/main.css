@@ -1,0 +1,207 @@
+.top-bar {
+  background-color: #3AAFA9;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+.catalog, .search-bar input, .icon, .ubmit-btn:hover, .submit-btn {
+  border-radius: 7px;
+}
+
+.catalog {
+  background-color: #116466;
+  margin-left: 15px;
+  padding: 14px;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  border: none;
+  outline: none;
+}
+
+
+
+.search-bar {
+  flex-grow: 1;
+  margin-left: 20px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 99%;
+  padding: 14px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icons {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.icon {
+  margin-left: 25px;
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+
+
+
+
+
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.scroll-item {
+    margin-left: 20px;
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.scroll-item img {
+    height: 350px !important;
+    border-radius: 20px;
+}
+
+
+.scroll-item h3,
+.scroll-item p {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.user-id-input {
+    font-size: 1.5em;
+    margin-right: 15px;
+    padding: 10px 15px;
+}
+
+.submit-btn {
+    font-size: 1.5em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+}
+.book-detail {
+    display: flex; /* Создает горизонтальное расположение для внутренних контейнеров */
+    margin: 0 auto; /* Центрирует контейнер на странице */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    padding: 20px; /* Отступы вокруг контента */
+}
+
+.book-container {
+    display: flex; /* Использует Flexbox для горизонтального расположения элементов */
+    width: 100%; /* Занимает всю доступную ширину */
+}
+
+.book-image-container {
+    flex-basis: 40%; /* Задает базовую ширину для контейнера изображения */
+    padding-right: 20px; /* Отступ справа от изображения */
+}
+
+.book-info-container {
+    flex-basis: 60%; /* Задает базовую ширину для контейнера информации */
+}
+
+/* Добавьте медиа-запросы для адаптивного дизайна, если необходимо */
+@media (max-width: 768px) {
+    .book-container {
+        flex-direction: column; /* Ставит элементы вертикально на маленьких экранах */
+    }
+
+    .book-image-container,
+    .book-info-container {
+        flex-basis: 100%; /* Занимает всю ширину на маленьких экранах */
+    }
+}
+
+
+.book-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.age-restriction-container {
+    margin-left: auto;
+    padding-left: 20px;
+}
+
+.age-restriction-circle {
+    background-color: #ADD8E6; /* Светло-голубой цвет */
+    border-radi
+
+.view-all-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+    float: right;
+    margin-left: 10px;
+}
+
+
+
+.view-all-link {
+    font-size: 0.9em;
+    float: right;
+    margin-top: -2em;
+    margin-bottom: 1em;
+}

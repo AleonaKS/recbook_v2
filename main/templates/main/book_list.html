@@ -1,0 +1,12 @@
+<div class="scroll-container">
+    {% for book in books %}
+        <div class="scroll-item">
+            <a href="{% url 'book_detail' book_id=book.book_id %}">
+                <img src="{{ book.image_link }}" alt="{{ book.title }}">
+            </a>
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+        </div>
+    {% endfor %}
+</div>
+

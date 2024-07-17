@@ -1,0 +1,49 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+<body>
+<div class="top-bar">
+  <a href="{% url 'index' %}" class="icon" aria-label="Домой"><span class="fas fa-home" style="font-size: 26px; padding: -10px; margin-right: 10px;"></span></a>
+  <a href="{% url 'catalog' %}" class="catalog"><span class="fa-solid fa-bars" style="padding: 0 15px; margin-left: -10px;"></span>Каталог</a>
+  <div class="search-bar">
+    <input type="text" placeholder="Найти...">
+    <a href="/search" class="search-icon" aria-label="Поиск"><span class="fas fa-search"></span></a>
+  </div>
+  <div class="icons">
+    <a href="/cart" class="icon" aria-label="Корзина"><span class="fa-solid fa-cart-shopping"></span></a>
+    <a href="/bookmarks" class="icon" aria-label="Закладки"><span class="fa-regular fa-bookmark"></span></a>
+    <a href="/login" class="icon" aria-label="Логин"><span class="fa-regular fa-user"></span></a>
+  </div>
+</div>
+
+{% block content %}
+<div class="center-form">
+    <!-- login.html -->
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Введите ваше имя">
+        <input type="submit" value="Войти">
+    </form>
+
+</div>
+{% endblock %}
+
+</body>
+
+</html>
+
+

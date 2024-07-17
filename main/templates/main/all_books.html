@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+{% block title %}Все книги{% endblock %}
+
+{% block content %}
+    <h1>Все книги - {{ category }}</h1>
+    <div class="table-container">
+        <table class="book-table">
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'book_detail' book_id=book.book_id %}">
+                                <img src="{{ book.image_link }}" alt="{{ book.title }}" class="book-cover">
+                            </a>
+                        </td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
