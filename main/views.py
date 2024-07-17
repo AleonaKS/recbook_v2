@@ -34,10 +34,7 @@ def combine_recommendations(name):
     return combined_recs
 
 
-def index(request):
-    # personal_books = Book.objects.filter(category='personal')[:20]
-    # popular_books = Book.objects.filter(category='popular')[:20]
-    # news_books = Book.objects.filter(category='news')[:20]
+def index(request): 
     sport_books = Book.objects.filter(description__icontains='футбол')
     summer_books = Book.objects.filter(description__icontains='лето')
     name = request.session.get('user_name')
