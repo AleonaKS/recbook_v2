@@ -24,18 +24,16 @@
             </div>
         {% endif %}
     </div>
-    <!-- Автор и рейтинг -->
+     
     <div class="book-author-rating">
         <h2 class="book-author">{{ books.author }}</h2>
         <p class="book-rating">Рейтинг: {{ books.rating_value }} ({{ books.rating_count }} оценок)</p>
     </div>
-    <!-- Контейнер для изображения и информации о книге -->
+     
     <div class="book-container">
-        <!-- Контейнер для изображения книги -->
         <div class="book-image-container">
             <img src="{{ books.image_link }}" alt="Обложка книги">
-        </div>
-        <!-- Контейнер для остальной информации о книге -->
+        </div> 
         <div class="book-info-container">
             <p>ISBN: {{ books.isbn }}</p>
             <p>Издательство: {{ books.publisher }}</p>
@@ -55,7 +53,6 @@
             </div>
         </div>
     </div>
-    <!-- Описание книги -->
     <div class="book-description">
         <p>{{ books.description }}</p>
     </div>
