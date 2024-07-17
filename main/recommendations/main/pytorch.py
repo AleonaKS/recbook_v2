@@ -60,8 +60,7 @@ def train_model(model, train_loader, test_loader, optimizer, criterion, epochs=1
             for user_input, book_input, ratings in test_loader:
                 outputs = model(user_input, book_input)
                 total_loss += criterion(outputs, ratings).item()
-            print(f'Epoch {epoch}, Loss: {total_loss / len(test_loader)}')
-
+             
 
 def get_predictions(model, users_books_df):
     user_tensor = torch.LongTensor(users_books_df['user_id'].values)
@@ -82,47 +81,7 @@ def recommend_books(user_id, users_books_df, top_n=10):
     book_ids = top_books['book_id'].tolist()
     recommended_books = Book.objects.filter(id__in=book_ids)
     return recommended_books
-
-
-# каждый раз обучает модель
-# def recommend_books_for_user(user_name):
-#     books_df, users_df, reviews_df, reactions_df = load_data()
-#     num_users = users_df['user_id'].nunique()
-#     num_books = books_df['isbn'].nunique()
-#     merged_df = merge_data(books_df, users_df, reviews_df, reactions_df)
-#     model = BookRecommender(num_users, num_books)
-#     optimizer = optim.Adam(model.parameters(), lr=0.001)
-#     criterion = nn.MSELoss()
-#
-#     merged_df['review_date'] = pd.to_datetime(merged_df['review_date'], format='%d.%m.%Y', utc=True)
-#     split_date = pd.Timestamp('2024-01-01', tz='UTC')
-#
-#     train_df = merged_df[merged_df['review_date'] < split_date]
-#     test_df = merged_df[merged_df['review_date'] >= split_date]
-#
-#     train_df = train_df[['book_id', 'rating', 'user_id']]
-#     test_df = test_df[['book_id', 'rating', 'user_id']]
-#
-#     user_tensor = torch.LongTensor(train_df['user_id'].values)
-#     book_tensor = torch.LongTensor(train_df['book_id'].values)
-#     ratings_tensor = torch.FloatTensor(train_df['rating'].values)
-#
-#     dataset = TensorDataset(user_tensor, book_tensor, ratings_tensor)
-#     train_loader = DataLoader(dataset, batch_size=64, shuffle=True)
-#     test_loader = DataLoader(dataset, batch_size=64, shuffle=False)
-#
-#     train_model(model, train_loader, test_loader, optimizer, criterion)
-#     torch.save(model.state_dict(), 'book_recommender.pth')
-#     model.load_state_dict(torch.load('book_recommender.pth'))
-#
-#     users_books_df = merged_df.copy()
-#     users_books_df = get_predictions(model, users_books_df)
-#     top_n = 5
-#     user_pref = UserPreference.objects.get(name=user_name)
-#     user_id = user_pref.user_id
-#     recommended_books = recommend_books(user_id, users_books_df, top_n)
-#     return recommended_books
-
+ 
 def train_and_save_model():
     books_df, users_df, reviews_df, reactions_df = load_data()
     num_users = users_df['user_id'].nunique()
