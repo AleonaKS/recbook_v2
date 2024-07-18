@@ -5,7 +5,6 @@ from .processing import data_wrangling
 from ...models import Book, UserPreference, Review, UserReaction
 df, books_df, reviews_df, users_df, reactions_df = data_wrangling()
 
-reactions_df['duration_viewed'] = 5
 
 def add_reaction(reactions_df, user_id, isbn, reaction_type, duration_viewed, date, evaluation):
     new_data = {
