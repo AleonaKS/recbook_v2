@@ -43,14 +43,7 @@ def get_book_info(url):
         'image_link': soup.select_one('.product-info-gallery__poster-img')['src'] if soup.select_one('.product-info-gallery__poster-img') else None
     }
 
-    # current_book_title = "Душа меча"
-    # book_list = soup.find_all('a', class_='product-cycle-categories__link')
-    #
-    # for index, book in enumerate(book_list, start=1):
-    #     if current_book_title in book.text:
-    #         print(f"Номер текущей книги в серии: {index}")
-    #         break
-
+ 
     reviews_data = []
     review_elements = soup.find_all('div', class_='product-review-card')
 
