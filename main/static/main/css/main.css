@@ -134,37 +134,36 @@ h1 {
 
 
 
-}
 .book-detail {
-    display: flex; /* Создает горизонтальное расположение для внутренних контейнеров */
-    margin: 0 auto; /* Центрирует контейнер на странице */
-    max-width: 1200px; /* Максимальная ширина контейнера */
-    padding: 20px; /* Отступы вокруг контента */
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 .book-container {
-    display: flex; /* Использует Flexbox для горизонтального расположения элементов */
-    width: 100%; /* Занимает всю доступную ширину */
+    display: flex;
+    width: 100%;
 }
 
 .book-image-container {
-    flex-basis: 40%; /* Задает базовую ширину для контейнера изображения */
-    padding-right: 20px; /* Отступ справа от изображения */
+    flex-basis: 40%;
+    padding-right: 20px;
 }
 
 .book-info-container {
-    flex-basis: 60%; /* Задает базовую ширину для контейнера информации */
+    flex-basis: 60%;
 }
 
-/* Добавьте медиа-запросы для адаптивного дизайна, если необходимо */
+
 @media (max-width: 768px) {
     .book-container {
-        flex-direction: column; /* Ставит элементы вертикально на маленьких экранах */
+        flex-direction: column;
     }
 
     .book-image-container,
     .book-info-container {
-        flex-basis: 100%; /* Занимает всю ширину на маленьких экранах */
+        flex-basis: 100%;
     }
 }
 
@@ -181,7 +180,7 @@ h1 {
 }
 
 .age-restriction-circle {
-    background-color: #ADD8E6; /* Светло-голубой цвет */
+    background-color: #ADD8E6;
     border-radi
 
 .view-all-link {
